@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+$transition: all 0.3s ease;
+body {
+  overflow-x: hidden;
+}
+.img-full {
+  width: 100%;
+  height: auto;
+}
