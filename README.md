@@ -11,7 +11,7 @@ This project requires you to have a installation of [nodejs](https://nodejs.org/
 This project also requires you to have global installations of [gulp](http://gulpjs.com/).
 ```
 # Install gulp globally
-npm install -g gulp
+sudo npm install -g gulp
 ```
 
 ## Quick Start
