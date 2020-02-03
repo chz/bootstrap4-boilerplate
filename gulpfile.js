@@ -88,7 +88,7 @@ gulp.task("default", gulp.series(["clean", 'build'], function () {
     gulp.start('renameSources');
 }));
 
-gulp.task('serve', gulp.series([], function () {
+gulp.task('serve', gulp.series(['compileSass','concatScripts'], function () {
     
     browserSync.init({
         server: "./"
