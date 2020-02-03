@@ -1,30 +1,29 @@
 {
   "name": "bootstrap4-boiler-plate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "a bootstrap 4 boiler plate with sass, concatenation, minification, autoprefixer, sourcemaps, browser-sync, git and gulp task runner",
   "main": "index.js",
   "scripts": {
     "dev": "gulp serve",
-    "build": "gulp",
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "build": "gulp"
   },
-  "author": "chingiznet",
+  "author": "chz",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chingiznet/bootstrap4-boilerplate"
+    "url": "https://github.com/chz/bootstrap4-boilerplate"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
     "gulp-html-replace": "^1.6.2",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1"
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
   }
 }
