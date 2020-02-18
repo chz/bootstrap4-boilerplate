@@ -15,8 +15,8 @@ var gulp = require('gulp'),
 gulp.task("concatScripts", gulp.series([],function () {
     return gulp.src([
             'assets/js/vendor/jquery-3.4.1.min.js',
-            'assets/js/vendor/bootstrap.min.js',
-            'assets/js/scripts.js'
+            'assets/js/vendor/popper.min.js',
+            'assets/js/vendor/bootstrap.min.js'
         ])
         .pipe(maps.init())
         .pipe(concat('main.js'))
@@ -63,21 +63,24 @@ gulp.task('browser-sync', gulp.series([],function () {
 }));
 
 gulp.task('clean', gulp.series([],function () {
-    del(['dist', 'assets/css/main.css*', 'assets/js/main*.js*']);
+    return new Promise((resolve,reject) => {
+      del(['dist', 'assets/css/main.css*', 'assets/js/main*.js*']);
+      resolve()
+    })
 }));
 
 gulp.task('renameSources', gulp.series([],function () {
-    return gulp.src(['*.html', '*.php'])
-        .pipe(htmlreplace({
-            'js': 'assets/js/main.min.js',
-            'css': 'assets/css/main.min.css'
-        }))
-        .pipe(gulp.dest('dist/'));
+    return gulp.src(['dist/*.html'])
+      .pipe(htmlreplace({
+        'js': 'assets/js/main.min.js',
+        'css': 'assets/css/main.min.css'
+      }))
+      .pipe(gulp.dest('dist'));
 }));
 
 gulp.task("build", gulp.series(['minifyScripts', 'minifyCss'], function () {
     return gulp.src(['*.html', '*.php', 'favicon.ico',
-            "assets/img/**", "assets/fonts/**"
+            "assets/img/**", "assets/fonts/**", "assets/js/scripts.js"
         ], {
             base: './'
         })
@@ -85,11 +88,19 @@ gulp.task("build", gulp.series(['minifyScripts', 'minifyCss'], function () {
 }));
 
 gulp.task("default", gulp.series(["clean", 'build'], function () {
-    gulp.start('renameSources');
+    return new Promise((resolve,reject) => {
+      gulp.src(['*.html'])
+        .pipe(htmlreplace({
+          'js': 'assets/js/main.min.js',
+          'css': 'assets/css/main.min.css'
+        }))
+        .pipe(gulp.dest('dist'));
+      resolve()
+    })
 }));
 
 gulp.task('serve', gulp.series(['compileSass','concatScripts'], function () {
-    
+
     browserSync.init({
         server: "./"
     });
