@@ -26,8 +26,8 @@ cd bootstrap4-boilerplate
 yarn or npm install
 
 # 4 Get started
-yarn dev - starts localhost server with browser-sync, watches html sass js with hot reloading
-yarn build - minify css/js and builds your app into the dist directory, ready for production
+yarn dev or npm run dev - starts localhost server with browser-sync, watches html sass js with hot reloading
+yarn build or npm run build - minify css/js and builds your app into the dist directory, ready for production
 ```
 
 ## Gulp commands
@@ -60,7 +60,7 @@ gulp concatScripts
 ```
 
 ## Overwriting Bootstrap sass variables
-You can overwrite specific bootstrap sass variables by uncommenting lines in assets/css/1-frameworks/bootstrap/bootstrap-user-variables.scss
+You can overwrite specific bootstrap sass variables by uncommenting lines in assets/css/bootstrap/_variables.scss
 
 ## PHP Support
 If you need a server with PHP support you can use the project with [MAMP Pro](https://www.mamp.info/en/mamp-pro/) or similiar.
